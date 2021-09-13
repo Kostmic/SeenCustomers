@@ -1,10 +1,12 @@
 package main
 
+import "github.com/google/uuid"
+
 type Customer struct {
-	Id      string `json:"id"`
-	Email   string `json:"title"`
-	PhoneNr string `json:"phonenr"`
-	Views   int    `json:"views"`
+	Id      uuid.UUID `json:"id"`
+	Email   string  `json:"email"`
+	Phone string  `json:"phone"`
+	Views   int     `json:"views"`
 }
 
 type Event struct {
@@ -16,21 +18,21 @@ type allCustomers []Customer
 
 var customers = allCustomers{
 	{
-		Id:      "1",
+		Id:      uuid.New(),
 		Email:   "john.eric@gmail.com",
-		PhoneNr: "47391048",
+		Phone: "47391048",
 		Views:   3,
 	},
 	{
-		Id:      "2",
+		Id:      uuid.New(),
 		Email:   "sarah_simpleton@hotmail.com",
-		PhoneNr: "38593926",
+		Phone: "38593926",
 		Views:   1,
 	},
 	{
-		Id:      "3",
+		Id:      uuid.New(),
 		Email:   "ChrisOlafson@gmail.com",
-		PhoneNr: "19573628",
+		Phone: "19573628",
 		Views:   8,
 	},
 }
