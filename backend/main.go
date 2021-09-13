@@ -4,16 +4,17 @@ import (
 	"log"
 	"net/http"
 
-	"github.com/julienschmidt/httprouter"
+	"github.com/gorilla/mux"
 )
 
 func main(){
-	router := httprouter.New()
-	
-	router.GET("/users", GetAllUsers())
-	router.GET("/user/:id", GetSingleUserById())
-	router.POST("/user", CreateUser())
-	router.PUT("/user", UpdateUser())
-	router.DELETE("/user", DeleteUser())
-	log.Fatal(http.ListenAndServe(":8080", nil))
+	router := mux.NewRouter()
+	router.HandleFunc("/users", GetAllUsers).Methods("GET")
+	router.HandleFunc("/user/{id}", GetSingleUserById).Methods("GET")
+ 	router.HandleFunc("/user", CreateUser).Methods()
+	router.HandleFunc("/user", UpdateUser).Methods()
+	router.HandleFunc("/user", DeleteUser).Methods() 
+
+	log.Fatal(http.ListenAndServe(":8080", router))
+
 }

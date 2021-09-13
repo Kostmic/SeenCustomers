@@ -1,32 +1,31 @@
 package main
 
 import (
+	"encoding/json"
 	"net/http"
 
-	"github.com/julienschmidt/httprouter"
+	"github.com/gorilla/mux"
 )
-func GetAllUsers() httprouter.Handle{
-	return func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
-		
-	}
+
+func GetAllUsers(writer http.ResponseWriter, request *http.Request){
+	json.NewEncoder(writer).Encode(customers)
 }
-func GetSingleUserById() httprouter.Handle{
-	return func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
-		
+func GetSingleUserById(writer http.ResponseWriter, request *http.Request){
+	params := mux.Vars(request)
+	for _, customer := range customers {
+		if customer.Id == params["id"] {
+			json.NewEncoder(writer).Encode(customer)
+		}
 	}
+
 }
-func CreateUser() httprouter.Handle{
-	return func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
-		
-	}
+func CreateUser(writer http.ResponseWriter, request *http.Request){
+
 }
-func UpdateUser() httprouter.Handle{
-	return func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
-		
-	}
+
+func UpdateUser(writer http.ResponseWriter, request *http.Request){
+
 }
-func DeleteUser() httprouter.Handle{
-	return func(writer http.ResponseWriter, request *http.Request, params httprouter.Params) {
-		
-	}
+func DeleteUser(writer http.ResponseWriter, request *http.Request){
+
 }
