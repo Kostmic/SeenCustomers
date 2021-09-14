@@ -7,13 +7,13 @@ import (
 	"github.com/gorilla/mux"
 )
 
-func main(){
+func main() {
 	router := mux.NewRouter()
 	router.HandleFunc("/users", GetAllUsers).Methods("GET")
-	router.HandleFunc("/user/{id}", GetSingleUserById).Methods("GET")
+	router.HandleFunc("/user", GetSingleUserById).Methods("GET")
 	router.HandleFunc("/user", CreateUser).Methods("POST")
- 	router.HandleFunc("/user/{id}", UpdateUser).Methods("PUT")
-	router.HandleFunc("/user/{id}", DeleteUser).Methods("DELETE") 
+	router.HandleFunc("/user", UpdateUser).Methods("PUT")
+	router.HandleFunc("/user", DeleteUser).Methods("DELETE")
 
 	log.Fatal(http.ListenAndServe(":8080", router))
 
