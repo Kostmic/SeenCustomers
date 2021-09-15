@@ -29,7 +29,7 @@ func GetSingleUserById(writer http.ResponseWriter, request *http.Request) {
 			return
 		}
 	}
-	//Return 402 no content if Id does not exist
+	//Return 404 if Id does not exist
 	writer.WriteHeader(http.StatusNotFound) //404
 
 }
