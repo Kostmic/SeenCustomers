@@ -8,12 +8,6 @@ type Customer struct {
 	Phone string    `json:"phone"`
 	Views int       `json:"views"`
 }
-/* type Customers struct {
-	Id    uuid.UUID `json:"id"`
-	Email string    `json:"email"`
-	Phone string    `json:"phone"`
-	Views int       `json:"views"`
-} */
 
 type Event struct {
 	PageHits   int `json:"pagehits"`
