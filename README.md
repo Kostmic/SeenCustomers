@@ -11,7 +11,9 @@ Once downloaded navigate into the backend subdirectory of this project and run t
 ### React
 Download Node from https://nodejs.org/en/download/.
 Once downloaded navigate into the frontend subdirectory of this project and run these commands:
+
 ```npm install```
+
 ```npm start```
 
 
